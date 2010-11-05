@@ -5,20 +5,41 @@ A stupid-simple wrapper over jQuery for nodejs. Currently 1.4.3.
 
 Works in the Browser and in Node.JS.
 
+
     npm install jquery
 
     var $ = require('jquery');
 
-TODO
-====
+    $("<h1>test passes</h1>").appendTo("body");
+    console.log($("body").html());
 
-Currently there is just one global `window`, just like in the browser.
 
-I'd like to make it more privitized so that it's possible to do multiple instances.
+In Node.JS you may also create separate window instances
 
   var jsdom = require('jsdom').jsdom,
-    window = jsdom().createWindow(),
-    $ = require('jQuery').create(window);
+      myWindow = jsdom().createWindow(),
+      $ = require('jquery'),
+      jq = require('jquery').create(),
+      jQuery = require('jquery').create(myWindow);
+
+    $("<h1>test passes</h1>").appendTo("body");
+    console.log($("body").html());
+
+    jq("<h2>other test passes</h2>").appendTo("body");
+    console.log(jq("body").html());
+
+    jQuery("<h3>third test passes</h3>").appendTo("body");
+    console.log(jQuery("body").html());
+
+Output:
+
+    <h1>test passes</h1>
+    <h2>other test passes</h2>
+    <h3>third test passes</h3>
+
+
+TODO
+====
 
 `XMLHttpRequest` is not yet in npm, so I'm waiting on that.
 
