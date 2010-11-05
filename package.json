@@ -1,0 +1,12 @@
+{
+  "name"          : "jquery",
+  "description"   : "jQuery: The Write Less, Do More, JavaScript Library",
+  "url"           : "jquery.com",
+  "keywords"      : ["util", "dom", "jquery"],
+  "author"        : "Douglas Crockford (packaged by AJ ONeal <coolaj86@gmail.com>)",
+  "contributors"  : [],
+  "dependencies"  : ["jsdom"],
+  "lib"           : "lib",
+  "main"          : "./lib/jquery-1.4.3.js",
+  "version"       : "1.4.3"
+}
