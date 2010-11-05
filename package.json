@@ -3,7 +3,7 @@
   "description"   : "jQuery: The Write Less, Do More, JavaScript Library",
   "url"           : "jquery.com",
   "keywords"      : ["util", "dom", "jquery"],
-  "author"        : "Douglas Crockford (packaged by AJ ONeal <coolaj86@gmail.com>)",
+  "author"        : "John Resig <jeresig@gmail.com>",
   "contributors"  : [],
   "dependencies"  : ["jsdom"],
   "lib"           : "lib",
