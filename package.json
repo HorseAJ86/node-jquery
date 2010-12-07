@@ -5,7 +5,7 @@
   "keywords"      : ["util", "dom", "jquery"],
   "author"        : "John Resig <jeresig@gmail.com>",
   "contributors"  : [],
-  "dependencies"  : ["jsdom","htmlparser"],
+  "dependencies"  : {"jsdom": "=0.1.20","htmlparser": ">= 1.7.3"},
   "lib"           : "lib",
   "main"          : "./lib/jquery-1.4.3.js",
   "version"       : "1.4.3"
