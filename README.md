@@ -16,7 +16,7 @@ Works in the Browser and in Node.JS.
 
 In Node.JS you may also create separate window instances
 
-  var jsdom = require('jsdom').jsdom,
+    var jsdom = require('jsdom').jsdom,
       myWindow = jsdom().createWindow(),
       $ = require('jquery'),
       jq = require('jquery').create(),
