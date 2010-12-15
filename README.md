@@ -41,6 +41,6 @@ Output:
 TODO
 ====
 
-`XMLHttpRequest` is not yet in npm, so I'm waiting on that.
+[`XMLHttpRequest`](https://github.com/driverdan/node-XMLHttpRequest) is not yet in npm, so I'm waiting on that.
 
-I may impmement it on top of `AbstractHttpRequest`, which is `request`-compatible
+I may impmement it on top of [`AbstractHttpRequest`](https://github.com/coolaj86/abstract-http-request), which is [`node-request`](http://github.com/mikeal/node-utils/tree/master/request/)-compatible
