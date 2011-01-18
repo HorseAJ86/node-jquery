@@ -1,9 +1,9 @@
 (function (undefined) {
   var jsdom = require('jsdom').jsdom,
       myWindow = jsdom().createWindow(),
-      $ = require('../lib/jquery-1.4.3'),
-      jq = require('../lib/jquery-1.4.3').create(),
-      jQuery = require('../lib/jquery-1.4.3').create(myWindow);
+      $ = require('../lib/jquery-1.4.4'),
+      jq = require('../lib/jquery-1.4.4').create(),
+      jQuery = require('../lib/jquery-1.4.4').create(myWindow);
 
     $("<h1>test passes</h1>").appendTo("body");
     console.log($("body").html());

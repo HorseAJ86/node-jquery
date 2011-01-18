@@ -7,6 +7,6 @@
   "contributors"  : [],
   "dependencies"  : {"jsdom": "=0.1.20","htmlparser": ">= 1.7.3"},
   "lib"           : "lib",
-  "main"          : "./lib/jquery-1.4.3.js",
-  "version"       : "1.4.3"
+  "main"          : "./lib/jquery-1.4.4.js",
+  "version"       : "1.4.4"
 }
