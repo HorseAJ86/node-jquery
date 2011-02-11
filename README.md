@@ -1,7 +1,7 @@
 node-jQuery
 ====
 
-A stupid-simple wrapper over jQuery for nodejs. Currently 1.4.4.
+A stupid-simple wrapper over jQuery for nodejs. Currently 1.5.
 
 Works in the Browser and in Node.JS.
 
