@@ -13,4 +13,9 @@ function create(window) {
     location = window.location;
   }
 
+  // jQuery uses an blank navigator usage
+  if('undefined' === typeof navigator) {
+	  navigator = window.navigator;
+  }
+
 
