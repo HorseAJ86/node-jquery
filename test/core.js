@@ -1,37 +1,15 @@
-var fs = require('fs'),
-node_jquery = require('../dist/node-jquery'),
-testCase = require('nodeunit').testCase,
-jsdom = require('jsdom').jsdom,
-static_document = fs.readFileSync('test/fixtures/core.html'),
-window,
-document,
-jQuery,
-$;
+var testCase = require('../deps/nodeunit/lib/nodeunit').testCase,
+static_document = require('fs').readFileSync('test/fixtures/core.html');
 
-/**
-* Returns an array of elements with the given IDs, eg.
-* @example q("main", "foo", "bar")
-* @result [<div id="main">, <span id="foo">, <input id="bar">]
-*/
-function q() {
-	var r = [];
+// need to be global as helpers access these variables
+window = document = jQuery = $ = null;
 
-	for ( var i = 0; i < arguments.length; i++ ) {
-		r.push( document.getElementById( arguments[i] ) );
-	}
-
-	return r;
-}
-
-function recreate_doc() {
-	document = jsdom(static_document);
-	window = document.createWindow();
-	$ = jQuery = node_jquery.create(window);
-}
+var helpers = require('./helpers/helper'),
+q = helpers.query_ids;
 
 module.exports = testCase({
 	setUp: function (callback) {
-		recreate_doc();
+		helpers.recreate_doc(static_document);
 		callback();
 	},
 	tearDown: function (callback) {
