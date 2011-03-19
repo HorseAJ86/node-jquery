@@ -7,3 +7,6 @@
 [submodule "nodeunit"]
 	path = nodeunit
 	url = git://github.com/caolan/nodeunit.git
+[submodule "jsdom"]
+	path = jsdom
+	url = https://github.com/tmpvar/jsdom.git
