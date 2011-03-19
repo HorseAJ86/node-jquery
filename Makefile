@@ -1,3 +1,5 @@
+NODEJS = $(if $(shell test -f /usr/bin/nodejs && echo "true"),nodejs,node)
+
 all: wrapper
 
 build/dist/jquery.js:
@@ -19,4 +21,7 @@ dist/node-jquery.min.js: src/header.js build/dist/jquery.min.js src/footer.js
 clean:
 	rm -rf build dist
 
-.PHONY: all wrapper clean
+test:
+	$(NODEJS) nodeunit/bin/nodeunit test/
+
+.PHONY: all wrapper clean test
