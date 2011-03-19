@@ -1,12 +1,9 @@
-[submodule "jquery"]
-	path = jquery
+[submodule "deps/jquery"]
+	path = deps/jquery
 	url = https://github.com/jquery/jquery.git
 [submodule "deps/nodeunit"]
 	path = deps/nodeunit
 	url = git://github.com/caolan/nodeunit.git
-[submodule "nodeunit"]
-	path = nodeunit
-	url = git://github.com/caolan/nodeunit.git
-[submodule "jsdom"]
-	path = jsdom
+[submodule "deps/jsdom"]
+	path = deps/jsdom
 	url = https://github.com/tmpvar/jsdom.git
