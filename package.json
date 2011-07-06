@@ -5,8 +5,11 @@
   "keywords"      : ["util", "dom", "jquery"],
   "author"        : "John Resig <jeresig@gmail.com>",
   "contributors"  : [],
-  "dependencies"  : {"jsdom": "=0.1.20","htmlparser": ">= 1.7.3"},
+  "dependencies"  : {
+                        "jsdom": ">=0.2.0"
+                      , "htmlparser": ">= 1.7.3"
+                    },
   "lib"           : "lib",
   "main"          : "./dist/node-jquery.js",
-  "version"       : "1.5.1"
+  "version"       : "1.6.2"
 }
