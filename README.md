@@ -1,7 +1,7 @@
 node-jQuery
 ====
 
-A stupid-simple wrapper over jQuery for nodejs. Currently 1.5.
+A stupid-simple wrapper over jQuery for nodejs. Currently 1.6.2.
 
 Works in the Browser and in Node.JS.
 
@@ -16,11 +16,12 @@ Works in the Browser and in Node.JS.
 
 In Node.JS you may also create separate window instances
 
-    var jsdom = require('jsdom').jsdom,
-      myWindow = jsdom().createWindow(),
-      $ = require('jquery'),
-      jq = require('jquery').create(),
-      jQuery = require('jquery').create(myWindow);
+    var jsdom = require('jsdom').jsdom
+      , myWindow = jsdom().createWindow()
+      , $ = require('jquery')
+      , jq = require('jquery').create()
+      , jQuery = require('jquery').create(myWindow)
+      ;
 
     $("<h1>test passes</h1>").appendTo("body");
     console.log($("body").html());
