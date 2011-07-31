@@ -6,6 +6,8 @@
   "author"        : "John Resig <jeresig@gmail.com>",
   "contributors"  : [],
   "dependencies"  : {
+      "jsdom": "=0.1.2"
+    , "htmlparser": ">= 1.7.3"
                     },
   "lib"           : ".",
   "main"          : "./node-jquery.js",

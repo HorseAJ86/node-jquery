@@ -1,12 +1,21 @@
 node-jQuery
 ====
 
-A stupid-simple wrapper over jQuery for nodejs. Currently 1.6.2.
+A stupid-simple wrapper over jQuery for Ender.JS (browser) and Node.JS. Currently 1.6.2.
 
-Works in the Browser and in Node.JS.
+Ender.JS
+---
 
+    ender add jQuery # note the capitalization
 
-    npm install jquery
+    var $ = require('jQuery');
+
+Note: An upcoming Ender.JS update will make it so that 
+
+Node.JS
+---
+
+    npm install jquery # note the lowercase
 
     var $ = require('jquery');
 
@@ -42,6 +51,4 @@ Output:
 TODO
 ====
 
-[`XMLHttpRequest`](https://github.com/driverdan/node-XMLHttpRequest) is not yet in npm, so I'm waiting on that.
-
-I may impmement it on top of [`AbstractHttpRequest`](https://github.com/coolaj86/abstract-http-request), which is [`node-request`](http://github.com/mikeal/node-utils/tree/master/request/)-compatible
+[`XMLHttpRequest`](https://github.com/driverdan/node-XMLHttpRequest) should be submitted to npm as `XMLHttpRequest`

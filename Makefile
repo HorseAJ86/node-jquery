@@ -26,9 +26,7 @@ dist:
 
 dist/node-jquery.js: dist src/header.js build/dist/jquery.js src/footer.js
 	cat src/header.js build/dist/jquery.js src/footer.js > dist/node-jquery.js
-
-dist/node-jquery.min.js: dist src/header.js build/dist/jquery.min.js src/footer.js
-	cat src/header.js build/dist/jquery.min.js src/footer.js > dist/node-jquery.min.js
+	cp package.json dist/
 
 clean:
 	rm -rf build dist

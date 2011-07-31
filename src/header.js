@@ -3,13 +3,13 @@ function create(window) {
   var location, navigator, XMLHttpRequest;
 
   window = window || require('jsdom').jsdom().createWindow();
-  location = window.location || {};
-  navigator = window.navigator || { userAgent: "Node.js" };
+  location = window.location || require('location');
+  navigator = window.navigator || require('navigator');
 
   if ('function' !== typeof window.XMLHttpRequest && 'function' !== typeof window.ActiveXObject) {
-    window.XMLHttpRequest = function () {};
-    // TODO
-    // node-XMLHttpRequest, Zombie, or AHR needs a good XMLHttpRequestneeds to be put on npm
+    window.XMLHttpRequest = require('xmlhttprequest'); // require('XMLHttpRequest');
+    // TODO repackage XMLHttpRequest
   }
 
+  // end npm / ender header
 
