@@ -1,35 +1,36 @@
 node-jQuery
 ====
 
-A stupid-simple wrapper over jQuery for Ender.JS (browser) and Node.JS. Currently 1.6.2.
+A stupid-simple wrapper over jQuery for Ender.JS (browser) and Node.JS (server). Currently 1.6.3.
 
 Ender.JS
 ---
 
-    ender add jQuery # note the capitalization
+    ender add jQuery
 
     var $ = require('jQuery');
-
-Note: An upcoming Ender.JS update will make it so that 
 
 Node.JS
 ---
 
-    npm install jquery # note the lowercase
+    npm install jQuery jsdom htmlparser xmlhttprequest
 
-    var $ = require('jquery');
+    var $ = require('jQuery');
+
+
+Examples
+---
 
     $("<h1>test passes</h1>").appendTo("body");
     console.log($("body").html());
-
 
 In Node.JS you may also create separate window instances
 
     var jsdom = require('jsdom').jsdom
       , myWindow = jsdom().createWindow()
-      , $ = require('jquery')
-      , jq = require('jquery').create()
-      , jQuery = require('jquery').create(myWindow)
+      , $ = require('jQuery')
+      , jq = require('jQuery').create()
+      , jQuery = require('jQuery').create(myWindow)
       ;
 
     $("<h1>test passes</h1>").appendTo("body");
@@ -51,4 +52,4 @@ Output:
 TODO
 ====
 
-[`XMLHttpRequest`](https://github.com/driverdan/node-XMLHttpRequest) should be submitted to npm as `XMLHttpRequest`
+[`XMLHttpRequest`](https://github.com/driverdan/node-XMLHttpRequest) should be submitted to npm as `XMLHttpRequest` to match how Ender.JS requires the same in the browser.

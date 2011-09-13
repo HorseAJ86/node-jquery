@@ -26,13 +26,20 @@ dist:
 
 dist/node-jquery.js: dist src/header.js build/dist/jquery.js src/footer.js
 	cat src/header.js build/dist/jquery.js src/footer.js > dist/node-jquery.js
-	cp package.json dist/
+
+dist/node-jquery.min.js: dist/node-jquery.js
+	uglifyjs dist/node-jquery.js > dist/node-jquery.min.js
 
 clean:
 	rm -rf build dist
+
+npm:
+	rm -rf dist/*.min.js
+	cp package.ender.json dist/package.json; cd dist; npm publish --force ./
+#	cp package.node.json dist/package.json; cd dist; npm publish --force ./
 
 
 test: dist/node-jquery.js deps/nodeunit deps/jsdom
 	$(NODEJS) deps/nodeunit/bin/nodeunit test/
 
-.PHONY: all wrapper clean test
+.PHONY: all wrapper clean test npm
