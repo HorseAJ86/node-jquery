@@ -1,7 +1,7 @@
 node-jQuery
 ====
 
-A stupid-simple wrapper over jQuery for Ender.JS (browser) and Node.JS (server). Currently 1.6.3.
+A stupid-simple wrapper over jQuery for Ender.JS (browser) and Node.JS (server). Currently 1.6.4.
 
 Ender.JS
 ---
