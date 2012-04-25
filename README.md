@@ -1,7 +1,7 @@
 node-jQuery
 ====
 
-A stupid-simple wrapper over jQuery for Ender.JS (browser) and Node.JS (server). Currently 1.6.4.
+A stupid-simple wrapper over jQuery for Ender.JS (browser) and Node.JS (server). Currently 1.7.2.
 
 Ender.JS
 ---
@@ -52,4 +52,12 @@ Output:
 TODO
 ====
 
-[`XMLHttpRequest`](https://github.com/driverdan/node-XMLHttpRequest) should be submitted to npm as `XMLHttpRequest` to match how Ender.JS requires the same in the browser.
+* [`XMLHttpRequest`](https://github.com/driverdan/node-XMLHttpRequest) should be submitted to npm as `XMLHttpRequest` to match how Ender.JS requires the same in the browser.
+* Update Node Unit to 0.7.4
+* Add dependencies to package.json
+* Make compatible with node 0.6.15
+* Lock dependency versions in package.json
+
+
+
+
