@@ -1,4 +1,4 @@
-var testCase = require('../deps/nodeunit/lib/nodeunit').testCase,
+var testCase = require('nodeunit').testCase,
 static_document = require('fs').readFileSync('test/fixtures/core.html');
 
 // need to be global as helpers access these variables
