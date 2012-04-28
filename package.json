@@ -1,0 +1,28 @@
+{
+  "author": "John Resig <jeresig@gmail.com>",
+  "description": "jQuery: The Write Less, Do More, JavaScript Library (packaged for Node.JS)",
+  "url": "http://jquery.com",
+  "keywords": [
+    "util",
+    "dom",
+    "jquery"
+  ],
+  "name": "jquery",
+  "version": "1.7.2",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coolaj86/node-jquery.git"
+  },
+  "dependencies": {
+    "jsdom": "~0.2.14",
+    "htmlparser": "1.7.6",
+    "xmlhttprequest": "~1.3.0"
+  },
+  "devDependencies": {
+    "nodeunit": "~0.7.4"
+  },
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}
