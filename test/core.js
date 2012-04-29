@@ -9,7 +9,7 @@ q = helpers.query_ids;
 
 module.exports = testCase({
 	setUp: function (callback) {
-		helpers.recreate_doc(static_document);
+		jQuery = $ =  helpers.recreate_doc(static_document);
 		callback();
 	},
 	tearDown: function (callback) {
