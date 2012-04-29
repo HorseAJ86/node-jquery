@@ -1,5 +1,5 @@
 var testCase = require('nodeunit').testCase,
-static_document = require('fs').readFileSync('test/fixtures/css.html');
+static_document = require('fs').readFileSync('test/fixtures/css.html', 'utf8');
 
 // need to be global as helpers access these variables
 window = document = jQuery = $ = null;
