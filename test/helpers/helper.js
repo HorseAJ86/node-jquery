@@ -11,13 +11,14 @@ var query_ids = function() {
 	}
 
 	return r;
-}
+};
 
 var recreate_doc = function(html) {
 	document = require('jsdom').jsdom(html);
 	window = document.createWindow();
 	return require(process.cwd() + '/dist/node-jquery').create(window);
-}
+};
+
 
 exports.query_ids = query_ids;
 exports.recreate_doc = recreate_doc;
