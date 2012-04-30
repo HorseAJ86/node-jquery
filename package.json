@@ -21,7 +21,7 @@
       "url": "https://github.com/coolaj86/node-jquery/blob/master/LICENSE-MIT"
     }
   ],
-  "main": "lib/jquery",
+  "main": "dist/node-jquery",
   "engines": {
     "node": "~0.6.14"
   },
