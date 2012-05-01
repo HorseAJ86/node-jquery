@@ -64,8 +64,13 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: '<json:package.json>',
+    server: {
+      port: 8000,
+      base: './test/fixtures/'
+    },
     test: {
-      files: ['test/*.js']
+      files: ['test/*.js'],
+      tasks: 'server'
     },
     lint: {
       files: ['grunt.js', 'lib/**/*.js', 'test/**/*.js']
@@ -96,5 +101,6 @@ module.exports = function(grunt) {
 
   // Default task.
   grunt.registerTask('default', 'build test');
+  grunt.registerTask('http_test', 'server test');
 
 };
