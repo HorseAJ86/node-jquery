@@ -7,14 +7,14 @@ module.exports = function(grunt) {
       jqPath = '/ajax/libs/jquery/1.7.2/jquery.js';
 
   grunt.registerTask('build', 'builds query module for us in nodje', function() {
-    var tmpDir = './tmp', distDir = './dist',
+    var tmpDir = './tmp', distDir = './lib',
         done = this.async(), wrapper;
 
 
     function buildjQuery(jq) {
       wrapper = fs.readFileSync('./src/wrapper.js', 'utf8');
       wrapper = wrapper.replace('//JQUERY_SOURCE', jq);
-      fs.writeFileSync('./dist/node-jquery.js', wrapper);
+      fs.writeFileSync('./lib/node-jquery.js', wrapper);
       done();
     }
 
@@ -56,7 +56,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('clean', 'removes dist and tmp directories', function() {
     var done = this.async();
-    exec('rm -rf ./tmp && rm -rf ./dist', function() {
+    exec('rm -rf ./tmp && rm -rf ./lib', function() {
       done();
     });
   });
