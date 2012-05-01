@@ -41,3 +41,15 @@ Output:
     <h2>other test passes</h2>
     <h3>third test passes</h3>
 
+JSONP Example
+----
+
+Version 1.7.2 now support xmlHTTPRequest
+
+    var $ = require('jQuery');
+
+    $.getJSON('http://twitter.com/status/user_timeline/treason.json?count=10&callback=?',function(data) {
+      console.log(data);
+    });
+
+
