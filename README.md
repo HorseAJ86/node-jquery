@@ -1,19 +1,12 @@
 node-jQuery
 ====
 
-A stupid-simple wrapper over jQuery for Ender.JS (browser) and Node.JS (server). Currently 1.7.2.
-
-Ender.JS
----
-
-    ender add jQuery
-
-    var $ = require('jQuery');
+A stupid-simple wrapper over jQuery for  Node.JS (server). Currently 1.7.2.
 
 Node.JS
 ---
 
-    npm install jQuery jsdom htmlparser xmlhttprequest
+    npm install jQuery
 
     var $ = require('jQuery');
 
