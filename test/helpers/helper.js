@@ -16,7 +16,7 @@ var query_ids = function() {
 var recreate_doc = function(html) {
 	document = require('jsdom').jsdom(html);
 	window = document.createWindow();
-	return require(process.cwd() + '/dist/node-jquery').create(window);
+	return require(process.cwd() + '/lib/node-jquery').create(window);
 };
 
 
