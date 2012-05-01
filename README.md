@@ -44,8 +44,6 @@ Output:
 JSONP Example
 ----
 
-Version 1.7.2 now support xmlHTTPRequest
-
     var $ = require('jQuery');
 
     $.getJSON('http://twitter.com/status/user_timeline/treason.json?count=10&callback=?',function(data) {
