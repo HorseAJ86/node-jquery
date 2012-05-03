@@ -443,6 +443,14 @@ module.exports = testCase({
 
 		test.done();
 	},
+  "create script tag": function (test) {
+    var src = null, dom;
+    test.expect(1);
+    dom = jsdom('<script src="none.js" type="text/javascript"></script>');
+    src = jQuery('script', dom).attr('src'); 
+    test.equals(src, 'none.js', 'script should return proper src attribute');
+    test.done();
+  },
 	"jQuery('html', context)": function(test) {
 		test.expect(1);
 
