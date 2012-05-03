@@ -1,4 +1,5 @@
 var testCase = require('nodeunit').testCase,
+jsdom = require('jsdom').jsdom,
 static_document = require('fs').readFileSync('test/fixtures/core.html', 'utf8');
 
 // need to be global as helpers access these variables
@@ -506,6 +507,17 @@ module.exports = testCase({
 		test.strictEqual( jQuery("#firstp").get(-2), undefined, "Try get with index negative index larger then elements count" );
 		test.done();
 	},
+
+  "attr()": function(test) {
+    var e = null;
+		test.expect(4);
+		test.equals( jQuery('#input1').attr('name'), 'PWD', "Get form element name attribute" );
+    test.equals( jQuery('#input2').attr('name'), 'T1', "Get form element name attribute" );
+    test.equals( jQuery('item').attr('name'), 'test val', "Get name attribute from element" );
+    e = jsdom('<element name="dude" age="25">content</element>');
+    test.equals( jQuery('element', e).attr('name'), 'dude', "Get name attribute from element" );
+		test.done();
+  },
 
 	"each(Function)": function(test) {
 		test.expect(1);
