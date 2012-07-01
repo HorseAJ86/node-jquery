@@ -854,6 +854,17 @@ module.exports = testCase({
 		jQuery.proxy( thisObject, "method" )();
 		test.done();
 	},
+  "jQuery.parseXML": function(test) {
+    var xml = "<rss version='2.0'><channel><title>RSS Title</title></channel></rss>", 
+        xmlDoc  = jQuery.parseXML(xml), 
+        $xml = jQuery( xmlDoc ), 
+        result;
+
+		test.expect(1);
+    result = $xml.find('title').text();
+    test.equals(result, 'RSS Title', 'Find Title in XML');
+    test.done();
+  },
 	"jQuery.parseJSON": function(test){
 		test.expect(8);
 
