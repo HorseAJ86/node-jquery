@@ -1,7 +1,8 @@
 (function () {
 function create(window) {
-
+  var isNode = false, DOMParser;
   if(window == null ) {
+    var isNode = true;
     window = require('jsdom').jsdom().createWindow();
     // assume window is a jsdom instance...
     // jsdom includes an incomplete version of XMLHttpRequest
@@ -16,7 +17,12 @@ function create(window) {
     if(window.navigator == null) {
       window.navigator = require('navigator');
     }
+
+    window.DOMParser = require('xmldom').DOMParser;
+
   }
+
+  DOMParser = window.DOMParser;
   
 
   var location = window.location,
@@ -24,7 +30,7 @@ function create(window) {
       XMLHttpRequest = window.XMLHttpRequest;
 
   //JQUERY_SOURCE
-
+  
   window.jQuery.noConflict();
   return window.jQuery;
 }
