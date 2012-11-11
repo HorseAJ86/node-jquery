@@ -21,7 +21,7 @@ Node.JS
 ```
     npm install jQuery
 
-    var $ = require('jQuery');
+    var $ = require('jquery');
 ```
 
 Examples
