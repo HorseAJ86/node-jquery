@@ -19,7 +19,7 @@ A stupid-simple wrapper over jQuery for  Node.JS (server). Currently 1.7.2.
 Node.JS
 ---
 ```
-    npm install jQuery
+    npm install jquery
 
     var $ = require('jquery');
 ```
@@ -36,9 +36,9 @@ In Node.JS you may also create separate window instances
 ```javascript
     var jsdom = require('jsdom').jsdom
       , myWindow = jsdom().createWindow()
-      , $ = require('jQuery')
-      , jq = require('jQuery').create()
-      , jQuery = require('jQuery').create(myWindow)
+      , $ = require('jquery')
+      , jq = require('jquery').create()
+      , jQuery = require('jquery').create(myWindow)
       ;
 
     $("<h1>test passes</h1>").appendTo("body");
@@ -63,7 +63,7 @@ JSONP Example
 ----
 
 ```javascript
-    var $ = require('jQuery');
+    var $ = require('jquery');
 
     $.getJSON('http://twitter.com/status/user_timeline/treason.json?count=10&callback=?',function(data) {
       console.log(data);
