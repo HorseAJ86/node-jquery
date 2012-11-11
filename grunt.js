@@ -1,12 +1,12 @@
 module.exports = function(grunt) {
-  
+
   var exec = require('child_process').exec,
       http = require('http'),
       fs = require('fs'),
       host = 'ajax.googleapis.com',
-      jqPath = '/ajax/libs/jquery/1.7.2/jquery.js';
+      jqPath = '/ajax/libs/jquery/1.8.2/jquery.js';
 
-  grunt.registerTask('build', 'builds query module for us in nodje', function() {
+  grunt.registerTask('build', 'builds jquery module for us in nodjs', function() {
     var tmpDir = './tmp', distDir = './lib',
         done = this.async(), wrapper;
 
@@ -22,13 +22,13 @@ module.exports = function(grunt) {
       var data = '',
           req = http.request({
         host: host,
-        port: 80, 
+        port: 80,
         path: jqPath,
         method: 'GET'
       }, function(res) {
-        res.setEncoding('utf8');  
+        res.setEncoding('utf8');
         res.on('data', function(chunk) {
-          data += chunk;  
+          data += chunk;
         });
         res.on('end', function() {
           fs.writeFileSync(tmpDir+'/jquery.js', data);
@@ -44,7 +44,7 @@ module.exports = function(grunt) {
     function getjQuery() {
       var jq = null;
       try {
-        jq = fs.readFileSync(tmpDir+'/jquery.js', 'utf8');  
+        jq = fs.readFileSync(tmpDir+'/jquery.js', 'utf8');
         buildjQuery(jq);
       } catch (e) {
         writejQuery();
