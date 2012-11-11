@@ -1,3 +1,16 @@
+DOES NOT WORK ON WINDOWS
+====
+Many people are having problems getting this module to work on windows. The
+failure has to do with building contextify on window. It seems to be a windows
+environment issue. I don't have access to a windows machine so I cannot explore
+working through the windows install process. If you figure out how to build
+[contextify](https://github.com/brianmcd/contextify) on windows please send me working instructions!
+
+NPM module jQuery is an EnderJS package. 
+====
+please use `npm install jquery` not `npm install jQuery`
+
+
 node-jQuery
 ====
 
