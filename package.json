@@ -29,7 +29,7 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "jsdom": "~0.2.14",
+    "jsdom": "~0.3.0",
     "htmlparser": "1.7.6",
     "xmlhttprequest": "~1.4.2",
     "location": "0.0.1",
