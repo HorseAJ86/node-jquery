@@ -31,7 +31,7 @@
   "dependencies": {
     "jsdom": "~0.2.14",
     "htmlparser": "1.7.6",
-    "xmldom": "0.1.11",
+    "xmldom": "0.1.13",
     "xmlhttprequest": "~1.4.2",
     "location": "0.0.1",
     "navigator": "~1.0.1"
