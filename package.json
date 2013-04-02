@@ -30,13 +30,16 @@
   },
   "dependencies": {
     "jsdom": "~0.5.5",
-    "xmlhttprequest": "~1.4.2",
+    "xmlhttprequest": "~1.5.0",
     "location": "~0.0.1",
     "navigator": "~1.0.1"
   },
   "devDependencies": {
-    "grunt": "~0.3.8",
-    "nodeunit": "~0.7.4"
+    "grunt": "~0.4.1",
+    "nodeunit": "~0.7.4",
+    "grunt-contrib-nodeunit": "~0.1.2",
+    "grunt-contrib-jshint": "~0.3.0",
+    "grunt-contrib-watch": "~0.3.1"
   },
   "keywords": [
     "util",
