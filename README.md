@@ -21,7 +21,7 @@ Node.JS
 ```
     npm install jquery
 
-    var $ = require('jquery');
+    var $ = require('jquery').create();
 ```
 
 Examples
@@ -36,18 +36,14 @@ In Node.JS you may also create separate window instances
 ```javascript
     var jsdom = require('jsdom').jsdom
       , myWindow = jsdom().createWindow()
-      , $ = require('jquery')
-      , jq = require('jquery').create()
+      , $ = require('jquery').create()
       , jQuery = require('jquery').create(myWindow)
       ;
 
     $("<h1>test passes</h1>").appendTo("body");
     console.log($("body").html());
 
-    jq("<h2>other test passes</h2>").appendTo("body");
-    console.log(jq("body").html());
-
-    jQuery("<h3>third test passes</h3>").appendTo("body");
+    jQuery("<h3>second test passes</h3>").appendTo("body");
     console.log(jQuery("body").html());
 ```
 
@@ -55,9 +51,20 @@ Output:
 
 ```html
     <h1>test passes</h1>
-    <h2>other test passes</h2>
-    <h3>third test passes</h3>
+    <h3>second test passes</h3>
 ```
+
+You may also specify the version of jQuery you'd like to use
+```javascript
+    var $ = require('jquery')(null, '1.9'); 
+```
+Currently the version defaults to `1.8.3`.
+
+Following versions are available -
+
+* 1.8(.3)
+* 1.9(.1)
+* 2.0(.0b2)
 
 JSONP Example
 ----
