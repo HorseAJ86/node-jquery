@@ -6,7 +6,7 @@ environment issue. I don't have access to a windows machine so I cannot explore
 working through the windows install process. If you figure out how to build
 [contextify](https://github.com/brianmcd/contextify) on windows please send me working instructions!
 
-NPM module jQuery is an EnderJS package. 
+NPM module jQuery is an EnderJS package.
 ====
 please use `npm install jquery` not `npm install jQuery`
 
@@ -56,12 +56,13 @@ Output:
 
 You may also specify the version of jQuery you'd like to use
 ```javascript
-    var $ = require('jquery')(null, '1.9'); 
+    var $ = require('jquery')(null, '1.9');
 ```
 Currently the version defaults to `1.8.3`.
 
 Following versions are available -
 
+* 1.7(.2)
 * 1.8(.3)
 * 1.9(.1)
 * 2.0(.0b2)
