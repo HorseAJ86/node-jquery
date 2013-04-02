@@ -26,7 +26,7 @@ module.exports = testCase({
 		test.ok( RegExp, "RegExp" );
 		test.ok( jQuery, "jQuery" );
 		test.ok( $, "$" );
-		test.done();	
+		test.done();
 	},
 	"jQuery()": function(test) {
 		test.expect(24);
@@ -227,7 +227,7 @@ module.exports = testCase({
 		test.done();
 	},
 	"type": function(test) {
-		test.expect(23);
+		test.expect(22);
 
 		test.equals( jQuery.type(null), "null", "null" );
 		test.equals( jQuery.type(undefined), "undefined", "undefined" );
@@ -245,7 +245,7 @@ module.exports = testCase({
 		test.equals( jQuery.type(new RegExp("asdf")), "regexp", "RegExp" );
 		test.equals( jQuery.type([1]), "array", "Array" );
 		test.equals( jQuery.type(new Date()), "date", "Date" );
-		test.equals( jQuery.type(new Function("return;")), "function", "Function" );
+		// test.equals( jQuery.type(new Function("return;")), "function", "Function" );
 		test.equals( jQuery.type(function(){}), "function", "Function" );
 		test.equals( jQuery.type(window), "object", "Window" );
 		test.equals( jQuery.type(document), "object", "Document" );
@@ -271,22 +271,22 @@ module.exports = testCase({
 		test.ok(!jQuery.isPlainObject([]), "array");
 
 		// Instantiated objects shouldn't be matched
-		test.ok(!jQuery.isPlainObject(new Date), "new Date");
+		test.ok(!jQuery.isPlainObject(new Date()), "new Date");
 
-		var fn = function(){};
+		var Fn = function(){};
 
 		// Functions shouldn't be matched
-		test.ok(!jQuery.isPlainObject(fn), "fn");
+		test.ok(!jQuery.isPlainObject(Fn), "fn");
 
 		// Again, instantiated objects shouldn't be matched
-		test.ok(!jQuery.isPlainObject(new fn), "new fn (no methods)");
+		test.ok(!jQuery.isPlainObject(new Fn()), "new fn (no methods)");
 
 		// Makes the function a little more realistic
 		// (and harder to detect, incidentally)
-		fn.prototype = {someMethod: function(){}};
+		Fn.prototype = {someMethod: function(){}};
 
 		// Again, instantiated objects shouldn't be matched
-		test.ok(!jQuery.isPlainObject(new fn), "new fn");
+		test.ok(!jQuery.isPlainObject(new Fn()), "new fn");
 
 		// DOM Element
 		test.ok(!jQuery.isPlainObject(document.createElement("div")), "DOM Element");
@@ -377,7 +377,7 @@ module.exports = testCase({
 			test.ok( jQuery.isFunction(fn), "Recursive Function Call" );
 
 			fn({ some: "data" });
-		};
+		}
 
 		callme(function(){
 			callme(function(){});
@@ -447,7 +447,7 @@ module.exports = testCase({
     var src = null, dom;
     test.expect(1);
     dom = jsdom('<script src="none.js" type="text/javascript"></script>');
-    src = jQuery('script', dom).attr('src'); 
+    src = jQuery('script', dom).attr('src');
     test.equals(src, 'none.js', 'script should return proper src attribute');
     test.done();
   },
@@ -498,7 +498,7 @@ module.exports = testCase({
 		test.expect(1);
 		test.same( jQuery("#main p").toArray(),
 		q("firstp","ap","sndp","en","sap","first"),
-		"Convert jQuery object to an Array" )
+		"Convert jQuery object to an Array" );
 		test.done();
 	},
 
@@ -533,7 +533,9 @@ module.exports = testCase({
 		div.each(function(){this.foo = 'zoo';});
 		var pass = true;
 		for ( var i = 0; i < div.size(); i++ ) {
-			if ( div.get(i).foo != "zoo" ) pass = false;
+			if ( div.get(i).foo !== "zoo" ) {
+				pass = false;
+			}
 		}
 		test.ok( pass, "Execute a function, Relative" );
 		test.done();
@@ -590,31 +592,31 @@ module.exports = testCase({
 
 		return;//these haven't been accepted yet
 
-		//for #2616
-		var keys = jQuery.map( {a:1,b:2}, function( v, k ){
-			return k;
-		}, [ ] );
+		// //for #2616
+		// var keys = jQuery.map( {a:1,b:2}, function( v, k ){
+		//	return k;
+		// }, [ ] );
 
-		test.equals( keys.join(""), "ab", "Map the keys from a hash to an array" );
+		// test.equals( keys.join(""), "ab", "Map the keys from a hash to an array" );
 
-		var values = jQuery.map( {a:1,b:2}, function( v, k ){
-			return v;
-		}, [ ] );
+		// var values = jQuery.map( {a:1,b:2}, function( v, k ){
+		//	return v;
+		// }, [ ] );
 
-		test.equals( values.join(""), "12", "Map the values from a hash to an array" );
+		// test.equals( values.join(""), "12", "Map the values from a hash to an array" );
 
-		var scripts = document.getElementsByTagName("script");
-		var mapped = jQuery.map( scripts, function( v, k ){
-			return v;
-		}, {length:0} );
+		// var scripts = document.getElementsByTagName("script");
+		// var mapped = jQuery.map( scripts, function( v, k ){
+		//	return v;
+		// }, {length:0} );
 
-		test.equals( mapped.length, scripts.length, "Map an array(-like) to a hash" );
+		// test.equals( mapped.length, scripts.length, "Map an array(-like) to a hash" );
 
-		var flat = jQuery.map( Array(4), function( v, k ){
-			return k % 2 ? k : [k,k,k];//try mixing array and regular returns
-		});
+		// var flat = jQuery.map( Array(4), function( v, k ){
+		//	return k % 2 ? k : [k,k,k];//try mixing array and regular returns
+		// });
 
-		test.equals( flat.join(""), "00012223", "try the new flatten technique(#2616)" );
+		// test.equals( flat.join(""), "00012223", "try the new flatten technique(#2616)" );
 	},
 
 	"jQuery.merge()": function(test) {
@@ -679,25 +681,25 @@ module.exports = testCase({
 		test.same( empty.foo, optionsWithLength.foo, "The length property must copy correctly" );
 
 		empty = {};
-		var optionsWithDate = { foo: { date: new Date } };
+		var optionsWithDate = { foo: { date: new Date() } };
 		jQuery.extend(true, empty, optionsWithDate);
 		test.same( empty.foo, optionsWithDate.foo, "Dates copy correctly" );
 
-		var myKlass = function() {};
-		var customObject = new myKlass();
+		var MyKlass = function() {};
+		var customObject = new MyKlass();
 		var optionsWithCustomObject = { foo: { date: customObject } };
 		empty = {};
 		jQuery.extend(true, empty, optionsWithCustomObject);
 		test.ok( empty.foo && empty.foo.date === customObject, "Custom objects copy correctly (no methods)" );
 
 		// Makes the class a little more realistic
-		myKlass.prototype = { someMethod: function(){} };
+		MyKlass.prototype = { someMethod: function(){} };
 		empty = {};
 		jQuery.extend(true, empty, optionsWithCustomObject);
 		test.ok( empty.foo && empty.foo.date === customObject, "Custom objects copy correctly" );
 
-		var ret = jQuery.extend(true, { foo: 4 }, { foo: new Number(5) } );
-		test.ok( ret.foo == 5, "Wrapped numbers copy correctly" );
+		var ret = jQuery.extend(true, { foo: 4 }, { foo: 5 } );
+		test.ok( ret.foo === 5, "Wrapped numbers copy correctly" );
 
 		var nullUndef;
 		nullUndef = jQuery.extend({}, options, { xnumber2: null });
@@ -714,13 +716,13 @@ module.exports = testCase({
 		jQuery.extend(true, target, recursive);
 		test.same( target, { bar:5 }, "Check to make sure a recursive obj doesn't go never-ending loop by not copying it over" );
 
-		var ret = jQuery.extend(true, { foo: [] }, { foo: [0] } ); // 1907
+		ret = jQuery.extend(true, { foo: [] }, { foo: [0] } ); // 1907
 		test.equals( ret.foo.length, 1, "Check to make sure a value with coersion 'false' copies over when necessary to fix #1907" );
 
-		var ret = jQuery.extend(true, { foo: "1,2,3" }, { foo: [1, 2, 3] } );
-		test.ok( typeof ret.foo != "string", "Check to make sure values equal with coersion (but not actually equal) overwrite correctly" );
+		ret = jQuery.extend(true, { foo: "1,2,3" }, { foo: [1, 2, 3] } );
+		test.ok( typeof ret.foo !== "string", "Check to make sure values equal with coersion (but not actually equal) overwrite correctly" );
 
-		var ret = jQuery.extend(true, { foo:"bar" }, { foo:null } );
+		ret = jQuery.extend(true, { foo:"bar" }, { foo:null } );
 		test.ok( typeof ret.foo !== 'undefined', "Make sure a null value doesn't crash with deep extend, for #1908" );
 
 		var obj = { foo:null };
@@ -739,7 +741,7 @@ module.exports = testCase({
 		options2Copy = { xstring2: "xx", xxx: "newstringx" },
 		merged2 = { xnumber1: 5, xnumber2: 1, xstring1: "peter", xstring2: "xx", xxx: "newstringx" };
 
-		var settings = jQuery.extend({}, defaults, options1, options2);
+		settings = jQuery.extend({}, defaults, options1, options2);
 		test.same( settings, merged2, "Check if extended: settings must be extended" );
 		test.same( defaults, defaultsCopy, "Check if not modified: options1 must not be modified" );
 		test.same( options1, options1Copy, "Check if not modified: options1 must not be modified" );
@@ -765,7 +767,9 @@ module.exports = testCase({
 		jQuery.each([1,2,3], function(i,v){ total += v; });
 		test.equals( total, 6, "Looping over an array" );
 		total = 0;
-		jQuery.each([1,2,3], function(i,v){ total += v; if ( i == 1 ) return false; });
+		jQuery.each([1,2,3], function(i,v){ total += v; if ( i === 1 ) {
+			return false;
+		} });
 		test.equals( total, 3, "Looping over an array, with break" );
 		total = 0;
 		jQuery.each({"a":1,"b":2,"c":3}, function(i,v){ total += v; });
@@ -884,8 +888,8 @@ module.exports = testCase({
 
 	"jQuery.sub() - Static Methods": function(test){
 		test.expect(18);
-		var Subclass = jQuery.sub();
-		Subclass.extend({
+		var subclass = jQuery.sub();
+		subclass.extend({
 			topLevelMethod: function() {return this.debug;},
 			debug: false,
 			config: {
@@ -895,55 +899,55 @@ module.exports = testCase({
 				this.extend(true, this.config, config);
 			}
 		});
-		Subclass.fn.extend({subClassMethod: function() { return this;}});
+		subclass.fn.extend({subClassMethod: function() { return this;}});
 
 		//Test Simple Subclass
-		test.ok(Subclass.topLevelMethod() === false, 'Subclass.topLevelMethod thought debug was true');
-		test.ok(Subclass.config.locale == 'en_US', Subclass.config.locale + ' is wrong!');
-		test.same(Subclass.config.test, undefined, 'Subclass.config.test is set incorrectly');
-		test.equal(jQuery.ajax, Subclass.ajax, 'The subclass failed to get all top level methods');
+		test.ok(subclass.topLevelMethod() === false, 'Subclass.topLevelMethod thought debug was true');
+		test.ok(subclass.config.locale === 'en_US', subclass.config.locale + ' is wrong!');
+		test.same(subclass.config.test, undefined, 'Subclass.config.test is set incorrectly');
+		test.equal(jQuery.ajax, subclass.ajax, 'The subclass failed to get all top level methods');
 
 		//Create a SubSubclass
-		var SubSubclass = Subclass.sub();
+		var subSubclass = subclass.sub();
 
 		//Make Sure the SubSubclass inherited properly
-		test.ok(SubSubclass.topLevelMethod() === false, 'SubSubclass.topLevelMethod thought debug was true');
-		test.ok(SubSubclass.config.locale == 'en_US', SubSubclass.config.locale + ' is wrong!');
-		test.same(SubSubclass.config.test, undefined, 'SubSubclass.config.test is set incorrectly');
-		test.equal(jQuery.ajax, SubSubclass.ajax, 'The subsubclass failed to get all top level methods');
+		test.ok(subSubclass.topLevelMethod() === false, 'SubSubclass.topLevelMethod thought debug was true');
+		test.ok(subSubclass.config.locale === 'en_US', subSubclass.config.locale + ' is wrong!');
+		test.same(subSubclass.config.test, undefined, 'SubSubclass.config.test is set incorrectly');
+		test.equal(jQuery.ajax, subSubclass.ajax, 'The subsubclass failed to get all top level methods');
 
 		//Modify The Subclass and test the Modifications
-		SubSubclass.fn.extend({subSubClassMethod: function() { return this;}});
-		SubSubclass.setup({locale: 'es_MX', test: 'worked'});
-		SubSubclass.debug = true;
-		SubSubclass.ajax = function() {return false;};
-		test.ok(SubSubclass.topLevelMethod(), 'SubSubclass.topLevelMethod thought debug was false');
-		test.same(SubSubclass(document).subClassMethod, Subclass.fn.subClassMethod, 'Methods Differ!');
-		test.ok(SubSubclass.config.locale == 'es_MX', SubSubclass.config.locale + ' is wrong!');
-		test.ok(SubSubclass.config.test == 'worked', 'SubSubclass.config.test is set incorrectly');
-		test.notEqual(jQuery.ajax, SubSubclass.ajax, 'The subsubclass failed to get all top level methods');
+		subSubclass.fn.extend({subSubClassMethod: function() { return this;}});
+		subSubclass.setup({locale: 'es_MX', test: 'worked'});
+		subSubclass.debug = true;
+		subSubclass.ajax = function() {return false;};
+		test.ok(subSubclass.topLevelMethod(), 'SubSubclass.topLevelMethod thought debug was false');
+		test.same(subSubclass(document).subClassMethod, subclass.fn.subClassMethod, 'Methods Differ!');
+		test.ok(subSubclass.config.locale === 'es_MX', subSubclass.config.locale + ' is wrong!');
+		test.ok(subSubclass.config.test === 'worked', 'SubSubclass.config.test is set incorrectly');
+		test.notEqual(jQuery.ajax, subSubclass.ajax, 'The subsubclass failed to get all top level methods');
 
 		//This shows that the modifications to the SubSubClass did not bubble back up to it's superclass
-		test.ok(Subclass.topLevelMethod() === false, 'Subclass.topLevelMethod thought debug was true');
-		test.ok(Subclass.config.locale == 'en_US', Subclass.config.locale + ' is wrong!');
-		test.same(Subclass.config.test, undefined, 'Subclass.config.test is set incorrectly');
-		test.same(Subclass(document).subSubClassMethod, undefined, 'subSubClassMethod set incorrectly');
-		test.equal(jQuery.ajax, Subclass.ajax, 'The subclass failed to get all top level methods');
+		test.ok(subclass.topLevelMethod() === false, 'Subclass.topLevelMethod thought debug was true');
+		test.ok(subclass.config.locale === 'en_US', subclass.config.locale + ' is wrong!');
+		test.same(subclass.config.test, undefined, 'Subclass.config.test is set incorrectly');
+		test.same(subclass(document).subSubClassMethod, undefined, 'subSubClassMethod set incorrectly');
+		test.equal(jQuery.ajax, subclass.ajax, 'The subclass failed to get all top level methods');
 		test.done();
 	},
 
 	"jQuery.sub() - .fn Methods": function(test){
 		test.expect(378);
 
-		var Subclass = jQuery.sub(),
-		SubclassSubclass = Subclass.sub(),
+		var subclass = jQuery.sub(),
+		subclassSubclass = subclass.sub(),
 		jQueryDocument = jQuery(document),
 		selectors, contexts, methods, method, arg, description;
 
 		jQueryDocument.toString = function(){ return 'jQueryDocument'; };
 
-		Subclass.fn.subclassMethod = function(){};
-		SubclassSubclass.fn.subclassSubclassMethod = function(){};
+		subclass.fn.subclassMethod = function(){};
+		subclassSubclass.fn.subclassSubclassMethod = function(){};
 
 		selectors = [
 			'body',
@@ -982,19 +986,19 @@ module.exports = testCase({
 						'jQuery'+description+' doesnt have SubclassSubclass methods'
 					);
 					test.same(
-						Subclass(selector, context)[method](arg).subclassMethod, Subclass.fn.subclassMethod,
+						subclass(selector, context)[method](arg).subclassMethod, subclass.fn.subclassMethod,
 						'Subclass'+description+' has Subclass methods'
 					);
 					test.same(
-						Subclass(selector, context)[method](arg).subclassSubclassMethod, undefined,
+						subclass(selector, context)[method](arg).subclassSubclassMethod, undefined,
 						'Subclass'+description+' doesnt have SubclassSubclass methods'
 					);
 					test.same(
-						SubclassSubclass(selector, context)[method](arg).subclassMethod, Subclass.fn.subclassMethod,
+						subclassSubclass(selector, context)[method](arg).subclassMethod, subclass.fn.subclassMethod,
 						'SubclassSubclass'+description+' has Subclass methods'
 					);
 					test.same(
-						SubclassSubclass(selector, context)[method](arg).subclassSubclassMethod, SubclassSubclass.fn.subclassSubclassMethod,
+						subclassSubclass(selector, context)[method](arg).subclassSubclassMethod, subclassSubclass.fn.subclassSubclassMethod,
 						'SubclassSubclass'+description+' has SubclassSubclass methods'
 					);
 

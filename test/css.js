@@ -75,7 +75,8 @@ module.exports = testCase({
 		//jQuery('#empty').css({ opacity: '1' });
 		//test.equals( jQuery('#empty').css('opacity'), '1', "Assert opacity is taken from style attribute when set vs stylesheet in IE with filters" );
 
-		var div = jQuery('#nothiddendiv'), child = jQuery('#nothiddendivchild');
+		div = jQuery('#nothiddendiv');
+		var child = jQuery('#nothiddendivchild');
 
 		//test.equals( parseInt(div.css("fontSize")), 16, "Verify fontSize px set." );
 		//test.equals( parseInt(div.css("font-size")), 16, "Verify fontSize px set." );
@@ -91,7 +92,7 @@ module.exports = testCase({
 		// Have to verify this as the result depends upon the browser's CSS
 		// support for font-size percentages
 		child.attr("class", "prct");
-		var prctval = parseInt(child.css("fontSize")), checkval = 0;
+		var prctval = parseInt(child.css("fontSize"), 10), checkval = 0;
 		if ( prctval === 16 || prctval === 24 ) {
 			checkval = prctval;
 		}
@@ -120,5 +121,5 @@ module.exports = testCase({
 		child.css("font-size", null);
 		test.equals( child[0].style.fontSize, old, "Make sure font-size isn't changed on null." );
 		test.done();
-	}	
+	}
 });

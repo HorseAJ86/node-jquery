@@ -1,8 +1,12 @@
 {
-  "globals": [
+  "predef": [
     "__dirname",
     "require",
-    "exports"
+    "exports",
+    "window",
+    "document",
+    "jQuery",
+    "$"
   ],
   "curly": true,
   "eqeqeq": true,
