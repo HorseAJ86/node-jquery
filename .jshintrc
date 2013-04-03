@@ -2,11 +2,7 @@
   "predef": [
     "__dirname",
     "require",
-    "exports",
-    "window",
-    "document",
-    "jQuery",
-    "$"
+    "exports"
   ],
   "curly": true,
   "eqeqeq": true,
@@ -18,5 +14,9 @@
   "undef": true,
   "boss": true,
   "eqnull": true,
-  "node": true
+  "browser": false,
+  "node": true,
+  "unused": true,
+  "indent": 2,
+  "trailing": true
 }
