@@ -41,7 +41,13 @@ var testSuite = {
 	}
 };
 
-var tests = ['collections', 'core', 'css', 'dom', 'fn', 'objects', 'selector', 'sub', 'type', 'utils'];
+var tests;
+if(process.env.TEST) {
+	tests = [process.env.TEST];
+} else {
+	tests = ['collections', 'core', 'css', 'dom', 'fn', 'objects', 'selector', 'sub', 'type', 'utils'];
+}
+
 tests.forEach(function(name) {
 	var test = require('./' + name)(context);
 	// Copy over the tests into the suite

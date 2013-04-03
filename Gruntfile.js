@@ -4,17 +4,17 @@ module.exports = function(grunt) {
   grunt.initConfig({
     'pkg': grunt.file.readJSON('package.json'),
     'nodeunit': {
-      'all': ['test/*.js']
+      'files': 'test/index.js'
     },
     'watch': {
-      'files': '<%= jshint.all %>',
-      'tasks': 'jshint',
+      'files': ['test/**/*.js'],
+      'tasks': ['nodeunit'],
       'options': {
         'debounceDelay': 250
       }
     },
     'jshint': {
-      'all': ['Gruntfile.js', 'lib/**/*.js', 'test/**/*.js'],
+      'files': ['Gruntfile.js', 'lib/**/*.js', 'test/**/*.js'],
       'options': {
         'jshintrc': '.jshintrc'
       }
