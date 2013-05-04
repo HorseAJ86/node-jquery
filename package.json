@@ -1,7 +1,7 @@
 {
   "name": "jquery",
   "description": "jQuery: The Write Less, Do More, JavaScript Library (packaged for Node.JS)",
-  "version": "1.8.3",
+  "version": "2.0.0",
   "url": "http://jquery.com",
   "homepage": "https://github.com/coolaj86/node-jquery",
   "author": {
@@ -29,7 +29,7 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "jsdom": "~0.5.5",
+    "jsdom": "~0.5.7",
     "xmlhttprequest": "~1.5.0"
   },
   "devDependencies": {
