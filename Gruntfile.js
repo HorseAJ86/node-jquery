@@ -84,4 +84,7 @@ module.exports = function(grunt) {
   // Register tasks.
   grunt.registerTask('default', ['jshint', 'download', 'nodeunit']);
 
+  // Alias "test" to "nodeunit"
+  grunt.registerTask('test', ['nodeunit']);
+
 };

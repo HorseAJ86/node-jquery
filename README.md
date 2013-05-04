@@ -6,6 +6,8 @@ environment issue. I don't have access to a windows machine so I cannot explore
 working through the windows install process. If you figure out how to build
 [contextify](https://github.com/brianmcd/contextify) on windows please send me working instructions!
 
+[![Build Status](https://api.travis-ci.org/coolaj86/node-jquery.png?branch=master)](https://travis-ci.org/coolaj86/node-jquery)
+
 NPM module jQuery is an EnderJS package.
 ====
 please use `npm install jquery` not `npm install jQuery`
