@@ -1,6 +1,7 @@
 var testCase = require('nodeunit').testCase;
 var jsdom = require('jsdom').jsdom;
-var jquery = require(process.cwd() + '/lib/node-jquery');
+var jquery = require(__dirname + '/../lib/node-jquery');
+var fs = require('fs');
 
 // Execution context object
 var context = {
@@ -13,6 +14,7 @@ var context = {
 * @result [<div id="main">, <span id="foo">, <input id="bar">]
 */
 context.q = function query_ids() {
+
 	var r = [];
 
 	for ( var i = 0; i < arguments.length; i++ ) {
@@ -22,8 +24,8 @@ context.q = function query_ids() {
 	return r;
 };
 
-var markup = require('fs').readFileSync('test/fixtures/core.html', 'utf8');
-function recreate_doc() {
+function recreate_doc(fixture) {
+	var markup = fs.readFileSync('test/fixtures/' + (fixture||'core') + '.html', 'utf8');
 	context.document = jsdom(markup);
 	context.window = context.document.createWindow();
 	context.$ = jquery.create(context.window, '1.8');
@@ -33,19 +35,14 @@ var testSuite = {
 	setUp: function (callback) {
 		recreate_doc();
 		callback();
-	},
-
-	tearDown: function (callback) {
-		// clean up
-		callback();
 	}
 };
 
-var tests;
+var tests, defaults = ['collections', 'core', 'dom', 'fn', 'objects', 'selector', 'sub', 'type', 'utils'];
 if(process.env.TEST) {
 	tests = [process.env.TEST];
 } else {
-	tests = ['collections', 'core', 'css', 'dom', 'fn', 'objects', 'selector', 'sub', 'type', 'utils'];
+	tests = defaults;
 }
 
 tests.forEach(function(name) {
@@ -55,5 +52,13 @@ tests.forEach(function(name) {
 		testSuite[key] = test[key];
 	});
 });
+
+if(tests === defaults || tests.indexOf('css') > -1) {
+	testSuite.css = require('./css')(context);
+	testSuite.css.setUp = function (callback) {
+		recreate_doc('css');
+		callback();
+	};
+}
 
 module.exports = testCase(testSuite);
