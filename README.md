@@ -6,7 +6,9 @@ environment issue. I don't have access to a windows machine so I cannot explore
 working through the windows install process. If you figure out how to build
 [contextify](https://github.com/brianmcd/contextify) on windows please send me working instructions!
 
-NPM module jQuery is an EnderJS package. 
+[![Build Status](https://api.travis-ci.org/coolaj86/node-jquery.png?branch=master)](https://travis-ci.org/coolaj86/node-jquery)
+
+NPM module jQuery is an EnderJS package.
 ====
 please use `npm install jquery` not `npm install jQuery`
 
@@ -21,7 +23,7 @@ Node.JS
 ```
     npm install jquery
 
-    var $ = require('jquery');
+    var $ = require('jquery').create();
 ```
 
 Examples
@@ -36,18 +38,14 @@ In Node.JS you may also create separate window instances
 ```javascript
     var jsdom = require('jsdom').jsdom
       , myWindow = jsdom().createWindow()
-      , $ = require('jquery')
-      , jq = require('jquery').create()
+      , $ = require('jquery').create()
       , jQuery = require('jquery').create(myWindow)
       ;
 
     $("<h1>test passes</h1>").appendTo("body");
     console.log($("body").html());
 
-    jq("<h2>other test passes</h2>").appendTo("body");
-    console.log(jq("body").html());
-
-    jQuery("<h3>third test passes</h3>").appendTo("body");
+    jQuery("<h3>second test passes</h3>").appendTo("body");
     console.log(jQuery("body").html());
 ```
 
@@ -55,9 +53,22 @@ Output:
 
 ```html
     <h1>test passes</h1>
-    <h2>other test passes</h2>
-    <h3>third test passes</h3>
+    <h3>second test passes</h3>
 ```
+
+You may also specify the version of jQuery you'd like to use
+```javascript
+    var $ = require('jquery')(null, '1.9');
+```
+Currently the version defaults to `1.8.3`.
+
+Following versions are available -
+
+* 1.6(.4)
+* 1.7(.2)
+* 1.8(.3)
+* 1.9(.1)
+* 2.0(.0)
 
 JSONP Example
 ----
@@ -70,3 +81,8 @@ JSONP Example
     });
 ```
 
+Building/Publishing to NPM
+----
+```
+grunt && npm publish
+```
