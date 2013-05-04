@@ -62,10 +62,11 @@ Currently the version defaults to `1.8.3`.
 
 Following versions are available -
 
+* 1.6(.4)
 * 1.7(.2)
 * 1.8(.3)
 * 1.9(.1)
-* 2.0(.0b2)
+* 2.0(.0)
 
 JSONP Example
 ----
@@ -78,3 +79,8 @@ JSONP Example
     });
 ```
 
+Building/Publishing to NPM
+----
+```
+grunt && npm publish
+```
