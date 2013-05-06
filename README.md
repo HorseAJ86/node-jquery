@@ -1,3 +1,10 @@
+SOON TO BE TAKEN OVER BY JQUERY TEAM
+====
+
+The jQuery team will be taking over `jQuery` and `jquery` on `npm`. In the meantime this repository still exists,
+but `coolaj86` is not maintaining it or pushing new changes to npm.
+See the discussion in the various issues to know who to contact about what.
+
 DOES NOT WORK ON WINDOWS
 ====
 Many people are having problems getting this module to work on windows. The
