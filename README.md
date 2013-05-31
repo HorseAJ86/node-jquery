@@ -15,12 +15,15 @@ working through the windows install process. If you figure out how to build
 
 [![Build Status](https://api.travis-ci.org/coolaj86/node-jquery.png?branch=master)](https://travis-ci.org/coolaj86/node-jquery)
 
-NPM module jQuery is an EnderJS package.
+NPM module 'jQuery' (capital 'Q')
 ====
-please use `npm install jquery` not `npm install jQuery`
+
+The is a browser CommonJS package for EnderJS, Pakmanager, etc.
+
+    npm install jQuery
 
 
-node-jQuery
+NPM module 'jquery' (lowercase 'q')
 ====
 
 A stupid-simple wrapper over jQuery for  Node.JS (server). Currently 1.7.2.
