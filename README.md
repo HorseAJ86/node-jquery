@@ -1,6 +1,8 @@
 SOON TO BE TAKEN OVER BY JQUERY TEAM
 ====
 
+When **jquery 2.x** is published to npm, it **will not be backwards compatible** with 1.x.
+
 The jQuery team will be taking over `jQuery` and `jquery` on `npm`. In the meantime this repository still exists,
 but `coolaj86` is not maintaining it or pushing new changes to npm.
 See the discussion in the various issues to know who to contact about what.
