@@ -1,5 +1,5 @@
-Before doing a PULL REQUEST or posting an ISSUE
-===
+Before creating a PULL REQUEST or ISSUE
+---
 
 Please see https://github.com/coolaj86/node-jquery/issues/59
 
