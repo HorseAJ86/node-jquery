@@ -1,3 +1,8 @@
+Before doing a PULL REQUEST or posting an ISSUE
+===
+
+Please see https://github.com/coolaj86/node-jquery/issues/59
+
 SOON TO BE TAKEN OVER BY JQUERY TEAM
 ====
 
