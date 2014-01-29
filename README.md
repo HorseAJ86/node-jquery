@@ -2,7 +2,7 @@ How to use jQuery (>= 2.x) in Node.js (>= 0.10)
 ===
 
 ```bash
-npm install -S jquery@>=2.1
+npm install -S 'jquery@>=2.1'
 ```
 
 `testjq.js`:
