@@ -5,18 +5,22 @@ How to use jQuery (>= 2.x) in Node.js (>= 0.10)
 npm install -S jquery@>=2.1
 ```
 
-`how-to-use-jquery-with-node.js`:
+`testjq.js`:
 ```javascript
 (function () {
   'use strict';
-  
+
   var env = require('jsdom').env
-    , document = env('<html><body><h1>Hello World!</h1<p class="hello">Heya Big World!</body></html>')
-    , window = document.createWindow()
-    , $ = require('jquery')(window)
     ;
-    
-  console.log($('.hello').text());
+
+  env('<html><body><h1>Hello World!</h1><p class="hello">Heya Big World!</body></html>', function (errors, window) {
+    console.log(errors);
+
+    var $ = require('jquery')(window)
+      ;
+
+    console.log($('.hello').text());
+  });
 }());
 ```
 
