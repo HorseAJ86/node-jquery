@@ -10,8 +10,8 @@ npm install -S jquery@>=2.1
 (function () {
   'use strict';
   
-  var jsdom = require('jsdom').jsdom
-    , document = jsdom('<html><body><h1>Hello World!</h1<p class="hello">Heya Big World!</body></html>')
+  var env = require('jsdom').env
+    , document = env('<html><body><h1>Hello World!</h1<p class="hello">Heya Big World!</body></html>')
     , window = document.createWindow()
     , $ = require('jquery')(window)
     ;
