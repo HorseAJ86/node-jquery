@@ -24,4 +24,6 @@ npm install -S 'jquery@>=2.1'
 }());
 ```
 
-This code in this repository is obsolete. Please don't use it. Use the new official jquery instead.
+The instructions above are for the new [official jquery](http://github.com/jquery/jquery) which, for some reason, doesn't have instructions for node in their README.
+
+Don't use the actual code in this repo. It's obsolete and only kept around for legacy apps.
