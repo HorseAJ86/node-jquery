@@ -1,3 +1,8 @@
+DEPRECATED
+===
+Don't use the actual code in this repo. It's obsolete and only kept around for legacy apps. jquery added support for node in 2.1.x. Use that instead.
+
+
 How to use jQuery in Node.js
 ===
 
@@ -32,4 +37,3 @@ npm install -S 'jsdom@latest'
 
 The instructions above are for the new [official jquery](http://github.com/jquery/jquery) which, for some reason, doesn't have instructions for node in their README.
 
-Don't use the actual code in this repo. It's obsolete and only kept around for legacy apps.
