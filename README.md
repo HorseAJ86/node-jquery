@@ -14,8 +14,11 @@ How to use jQuery >= 2.x in Node.js >= 0.10
 
 ```bash
 npm install -S 'jquery@>=2.1'
-npm install -S 'jsdom@latest'
+npm install -S 'jsdom@3.1.2'
 ```
+
+(Note that version 3.1.2 of jsdom is required, because as of jsdom version 4.0.0, jsdom no longer works
+with Node.js.  If you use Io.js rather than Node.js, you can use the latest 4.x release of jsdom.)
 
 `testjq.js`:
 ```javascript
